@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"  href="./../static/style.css" >
+<title>Network Intrusion Detection</title>
+</head>
+<body>
+<div class="container">
+  <h1>Input Collection</h1>
+  <form id="inputForm" method="post" action="/checker">
+    
+    <label for="service">Service:</label>
+    <input type="text" id="service" name="service">
+    
+    <label for="logged_in">Logged In:</label>
+    <input type= "number" id="logged_in" name="logged_in" max="1" min="0">
+    
+    <label for="dst_host_same_srv_rate" step="0.01">Destination Host Same Service Rate:</label>
+    <input type="decimal" id="dst_host_same_srv_rate" name="dst_host_same_srv_rate">
+    
+    <label for="dst_host_srv_count" step="0.01">Destination Host Service Count:</label>
+    <input type="decimal" id="dst_host_srv_count" name="dst_host_srv_count">
+    
+    <label for="same_srv_rate" step="0.01">Same Service Rate:</label>
+    <input type="decimal" id="same_srv_rate" name="same_srv_rate">
+    
+    <label for="count">Count:</label>
+    <input type="number" id="count" name="count">
+    
+    <label for="serror_rate" step="0.01">SYN error Rate:</label>
+    <input type="decimal" id="serror_rate" name="serror_rate">
+    
+    <label for="srv_serror_rate" step="0.01">Service SYN error Rate:</label>
+    <input type="decimal" id="srv_serror_rate" name="srv_serror_rate">
+    
+    <label for="dst_host_serror_rate" step="0.01">Destination Host SYN error Rate:</label>
+    <input type="decimal" id="dst_host_serror_rate" name="dst_host_serror_rate">
+    
+    <label for="dst_host_srv_serror_rate" step="0.01">Destination Host Service SYN error Rate:</label>
+    <input type="decimal" id="dst_host_srv_serror_rate" name="dst_host_srv_serror_rate">
+
+    <label for="flag">Flag:</label>
+    <input type="text" id="flag_SF" name="flag">
+
+    <button type="button" id="submitButton">Submit</button>
+    
+  </form>
+</div>
+
+<script>
+  document.getElementById("submitButton").addEventListener("click", function() {
+    var form = document.getElementById("inputForm");
+    var formData = new FormData(form);
+    var summary = "";
+    formData.forEach(function(value, key) {
+      summary += key + ": " + value + "\n";
+    });
+    localStorage.setItem("inputSummary", summary);
+    window.location.href = "summary.html";
+  });
+</script>
+</body>
+</html>

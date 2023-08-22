@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./../static/output.css">
+<title>Input Summary</title>
+</head>
+<body>
+<div class="container">
+  <h1>Input Summary</h1>
+  <pre id="summaryDisplay">
+        <p>Service : {{input.service}}</p>
+        <p>Logged In : {{input.logged_in}}</p>
+        <p>Destination Host Same Service Rate: {{input.dst_host_same_srv_rate}}</p>
+        <p>Destination Host Service Count: {{input.dst_host_srv_count}}</p>
+        <p>Same Service Rate: {{input.same_srv_rate}}</p>
+        <p>Count: {{input.count}}</p>
+        <p>SYN error Rate: {{input.serror_rate}}</p>
+        <p>Service SYN error Rate: {{input.srv_serror_rate}}</p>
+        <p>Destination Host SYN error Rate: {{input.dst_host_serror_rate}}</p>
+        <p>Destination Host Service SYN error Rate: {{input.dst_host_srv_serror_rate}}</p>
+        <p>Flag: {{input.flag}}</p>
+  </pre>
+</div>
+
+<div class="output">
+    {% if answer != None %}
+    {{answer}}
+    {% endif %}
+</div>
+
+<!-- <script>
+  var inputSummary = localStorage.getItem("inputSummary");
+  if (inputSummary) {
+    document.getElementById("summaryDisplay").textContent = inputSummary;
+  } else {
+    document.getElementById("summaryDisplay").textContent = "No input summary available.";
+  }
+</script> -->
+</body>
+</html>
