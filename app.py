@@ -10,7 +10,6 @@ def home():
 def checker():
     data = request.form
     data = dict(data)
-    print(data['service'])
     answer = detect(data)
     return render_template("output.html",input = data, answer = answer[0])
 

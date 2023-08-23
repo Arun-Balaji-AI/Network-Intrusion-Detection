@@ -9,57 +9,57 @@
 <body>
 <div class="container">
   <h1>Input Collection</h1>
-  <form id="inputForm" method="post" action="/checker">
+  <form id="inputForm" method="post" action="/checker" onsubmit="formsubmit()">
     
     <label for="service">Service:</label>
-    <input type="text" id="service" name="service">
+    <input type="text" id="service" name="service" required>
     
     <label for="logged_in">Logged In:</label>
-    <input type= "number" id="logged_in" name="logged_in" max="1" min="0">
+    <input type= "number" id="logged_in" name="logged_in" max="1" min="0" required>
     
     <label for="dst_host_same_srv_rate" step="0.01">Destination Host Same Service Rate:</label>
-    <input type="decimal" id="dst_host_same_srv_rate" name="dst_host_same_srv_rate">
+    <input type="decimal" id="dst_host_same_srv_rate" name="dst_host_same_srv_rate" required>
     
     <label for="dst_host_srv_count" step="0.01">Destination Host Service Count:</label>
-    <input type="decimal" id="dst_host_srv_count" name="dst_host_srv_count">
+    <input type="decimal" id="dst_host_srv_count" name="dst_host_srv_count" required>
     
     <label for="same_srv_rate" step="0.01">Same Service Rate:</label>
-    <input type="decimal" id="same_srv_rate" name="same_srv_rate">
+    <input type="decimal" id="same_srv_rate" name="same_srv_rate" required>
     
     <label for="count">Count:</label>
-    <input type="number" id="count" name="count">
+    <input type="number" id="count" name="count" required>
     
     <label for="serror_rate" step="0.01">SYN error Rate:</label>
-    <input type="decimal" id="serror_rate" name="serror_rate">
+    <input type="decimal" id="serror_rate" name="serror_rate" required>
     
     <label for="srv_serror_rate" step="0.01">Service SYN error Rate:</label>
-    <input type="decimal" id="srv_serror_rate" name="srv_serror_rate">
+    <input type="decimal" id="srv_serror_rate" name="srv_serror_rate" required>
     
     <label for="dst_host_serror_rate" step="0.01">Destination Host SYN error Rate:</label>
-    <input type="decimal" id="dst_host_serror_rate" name="dst_host_serror_rate">
+    <input type="decimal" id="dst_host_serror_rate" name="dst_host_serror_rate" required>
     
     <label for="dst_host_srv_serror_rate" step="0.01">Destination Host Service SYN error Rate:</label>
-    <input type="decimal" id="dst_host_srv_serror_rate" name="dst_host_srv_serror_rate">
+    <input type="decimal" id="dst_host_srv_serror_rate" name="dst_host_srv_serror_rate" required>
 
     <label for="flag">Flag:</label>
-    <input type="text" id="flag_SF" name="flag">
+    <input type="text" id="flag_SF" name="flag" required>
 
-    <button type="button" id="submitButton">Submit</button>
+    <button type="submit" id="submitButton">Submit</button>
     
   </form>
 </div>
 
 <script>
-  document.getElementById("submitButton").addEventListener("click", function() {
-    var form = document.getElementById("inputForm");
-    var formData = new FormData(form);
-    var summary = "";
-    formData.forEach(function(value, key) {
-      summary += key + ": " + value + "\n";
-    });
-    localStorage.setItem("inputSummary", summary);
-    window.location.href = "summary.html";
-  });
+  //  function formsubmit() {
+  //   var form = document.getElementById("inputForm");
+  //   var formData = new FormData(form);
+  //   var summary = "";
+  //   formData.forEach(function(value, key) {
+  //     summary += key + ": " + value + "\n";
+  //   });
+  //   localStorage.setItem("inputSummary", summary);
+  //   // window.location.href = "output.html";
+  // };
 </script>
 </body>
 </html>
